@@ -1,24 +1,44 @@
 import logo from './logo.svg';
 import './App.css';
+import Header from './Header';
+
 
 function App() {
+
+  let name = "Syeda Atruba";
+  let l = [10, 20, 30, 40];
+  let obj = {
+    'name': "Atruba",
+    'class': "Graduation",
+    'uni': "IU"
+  }
+  let status = true;
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div className='main'>
+
+
+
+      {l.map((v) => {
+        return (
+          <p>{v}</p>
+        )
+      })}
+
+      <h1>{obj.name}</h1>
+      <h1>{obj.class}</h1>
+      <h1>{obj.uni}</h1>
+      <h1>{10 + 90}</h1>
+
+      {(status) ? <h1 style={{ color: "yellow", backgroundColor: "purple" }}>{name}</h1> : ""}
+
+      <Header></Header>
+
     </div>
+
+
   );
 }
 
