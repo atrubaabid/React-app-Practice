@@ -4,6 +4,7 @@ import Header from './Header';
 import { blog } from './Data/blog';
 import weblogo from "./images/yc1.jpg"
 import { useState } from 'react';
+import btnmodule from './button.module.css'
 
 
 function App() {
@@ -45,7 +46,7 @@ function App() {
   let [show, setshow] = useState(false)
 
 
-
+  let [showpass, setpass] = useState(false)
 
 
   return (
@@ -54,8 +55,22 @@ function App() {
     <div className='main'>
 
 
-      <button onClick={() => setshow(!show)}>{(show) ? "Hide" : "Show"}</button>
+
+
+
       
+
+      {/* SHOW HIDE PASSWORD PROJECT */}
+
+      <input type={showpass ? 'text' : 'password'} />
+      <button className={btnmodule.error} onClick={() => setpass(!showpass)}>{showpass ? 'Hide' : 'show'}</button>
+
+      {/* SHOW HIDE PASSWORD PROJECT END */}
+
+
+
+      <button onClick={() => setshow(!show)}>{(show) ? "Hide" : "Show"}</button>
+
       {(show) ? <h1>Hello</h1> : ""}
 
       {template}
@@ -133,9 +148,11 @@ function Card() {
 function Productitems({ pitems }) {
   return (
     <div className='divy'>
-      <h4>{pitems.title}</h4>
-      <p>{pitems.body}</p>
-      <button>{pitems.id}</button>
+      <div>
+        <h4>{pitems.title}</h4>
+        <p>{pitems.body}</p>
+        <button>{pitems.id}</button>
+      </div>
     </div>
   )
 }
