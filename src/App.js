@@ -48,7 +48,7 @@ function App() {
 
   let [showpass, setpass] = useState(false)
 
-
+  let [menustatus, setmenustatus] = useState(false)
   return (
 
     // we write html, css, js all here
@@ -56,9 +56,35 @@ function App() {
 
 
 
+      {/* RESPONSIVE MENU PROJECT */}
 
 
-      
+      <button className='micon' onClick={() => setmenustatus(!menustatus)}>{menustatus ? <span>&times;</span> : <span>&#9776;</span>}</button>
+
+      <div className={`menu ${menustatus ? 'activemenu' : ''}`}>
+        <ul>
+          <li>Home</li>
+          <li>About</li>
+          <li>Services</li>
+          <li>Contact</li>
+          <li>Help</li>
+        </ul>
+      </div>
+
+      {/* RESPONSIVE MENU PROJECT END */}
+
+
+
+
+
+
+
+
+
+
+
+
+      <br></br>
 
       {/* SHOW HIDE PASSWORD PROJECT */}
 
@@ -66,6 +92,8 @@ function App() {
       <button className={btnmodule.error} onClick={() => setpass(!showpass)}>{showpass ? 'Hide' : 'show'}</button>
 
       {/* SHOW HIDE PASSWORD PROJECT END */}
+
+      <br></br>
 
 
 
