@@ -7,7 +7,6 @@ import { useState } from 'react';
 import btnmodule from './button.module.css'
 import { questions } from './Data/faqQuestion';
 import Faqs from './Faqs';
-import 'react-notifications/lib/notifications.css';
 
 
 
@@ -64,12 +63,57 @@ function App() {
   // }
 
 
+
+
+  let [todolist, setTodolist] = useState([])
+
+
+  let saveTodoList = (event) => {
+    let toname = event.target.toname.value;
+
+    if (!todolist.includes(toname)) {
+      let finalTodoList = [...todolist, toname]
+      setTodolist(finalTodoList)
+
+    } else {
+      alert("This name already exists.....")
+    }
+
+    event.preventDefault();
+
+  }
+  let list = todolist.map((value, i) => {
+    return (
+      <TodoListItems value={value} key={i} indexNumber={i}
+        todolist={todolist} setTodolist={setTodolist}></TodoListItems>
+
+    )
+  })
+
+
   return (
 
     // we write html, css, js all here
     <div className='main'>
 
 
+      {/*TODO LIST PROJECT */}
+
+      <div>
+        <h1>TODO LIST PROJECT</h1>
+        <form onSubmit={saveTodoList}>
+          <input type='text' name='toname'></input> <button>Save</button>
+        </form>
+
+        <div className='outerDiv'>
+          <ul>
+            {list}
+          </ul>
+        </div>
+
+
+
+      </div>
 
 
 
@@ -78,31 +122,7 @@ function App() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      {/*TODO LIST PROJECT END */}
 
 
 
@@ -117,8 +137,8 @@ function App() {
       {/* <NotificationContainer/> */}
 
 
-        
-    {/* <button onClick={showNotification}>Save</button> */}
+
+      {/* <button onClick={showNotification}>Save</button> */}
 
 
 
@@ -128,7 +148,7 @@ function App() {
 
 
 
-<br></br>
+      <br></br>
 
 
 
@@ -153,13 +173,13 @@ function App() {
 
           {questions.map((faqitems, i) => {
 
-          return(
+            return (
               <div className='faqitems' key={i}>
-              <h2 onClick={()=>setshowAns(faqitems.id)}>{faqitems.Question}</h2>
+                <h2 onClick={() => setshowAns(faqitems.id)}>{faqitems.Question}</h2>
 
-              <p className={showAns == faqitems.id ? 'activeAns': ''}>{faqitems.Answer}</p>
-            </div>
-          )
+                <p className={showAns == faqitems.id ? 'activeAns' : ''}>{faqitems.Answer}</p>
+              </div>
+            )
 
           })}
 
@@ -324,5 +344,22 @@ function Productitems({ pitems }) {
         <button>{pitems.id}</button>
       </div>
     </div>
+  )
+}
+
+
+function TodoListItems({ value, setTodolist, indexNumber, todolist }) {
+
+  let deleteRow = () => {
+    let finalData = todolist.filter((v, i) => i != indexNumber)
+    setTodolist(finalData);
+  }
+
+
+  let [status, setstatus] = useState(false)
+
+  return (
+    <li className={status? 'completetodo' : ''} onClick={()=>setstatus(!status)}>{indexNumber + 1} {value} <span onClick={deleteRow}>&times;</span></li>
+
   )
 }
