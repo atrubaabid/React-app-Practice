@@ -6,6 +6,7 @@ import weblogo from "./images/yc1.jpg"
 import { useState } from 'react';
 import btnmodule from './button.module.css'
 import { questions } from './Data/faqQuestion';
+import Faqs from './Faqs';
 
 
 function App() {
@@ -63,8 +64,16 @@ function App() {
     <div className='main'>
 
 
+      <Faqs></Faqs>
 
-      
+
+      {/*CREATE FAQ WITH PROPS DRILING PROJECT */}
+
+
+      {/*CREATE FAQ WITH PROPS DRILING PROJECT END */}
+
+
+      <br></br>
 
 
       {/*CREATE FAQ USING STATE PROJECT */}
