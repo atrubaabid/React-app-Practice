@@ -5,6 +5,7 @@ import { blog } from './Data/blog';
 import weblogo from "./images/yc1.jpg"
 import { useState } from 'react';
 import btnmodule from './button.module.css'
+import { questions } from './Data/faqQuestion';
 
 
 function App() {
@@ -49,10 +50,74 @@ function App() {
   let [showpass, setpass] = useState(false)
 
   let [menustatus, setmenustatus] = useState(false)
+
+
+  let [modalstatus, setmodalstatus] = useState(false)
+
+  let [showAns, setshowAns] = useState(questions[0].id)
+
+
   return (
 
     // we write html, css, js all here
     <div className='main'>
+
+
+
+      
+
+
+      {/*CREATE FAQ USING STATE PROJECT */}
+
+      <div>
+        <h1>FREQUENTLY ASKED QUESTIONS (FAQs)</h1>
+
+        <div className='faqOuter'>
+
+          {questions.map((faqitems, i) => {
+
+          return(
+              <div className='faqitems' key={i}>
+              <h2 onClick={()=>setshowAns(faqitems.id)}>{faqitems.Question}</h2>
+
+              <p className={showAns == faqitems.id ? 'activeAns': ''}>{faqitems.Answer}</p>
+            </div>
+          )
+
+          })}
+
+
+
+        </div>
+      </div>
+
+
+
+
+      {/*CREATE FAQ USING STATE PROJECT  END*/}
+
+
+
+      <br></br>
+
+
+      {/*CREATE LOGIN MODAL PROJECT */}
+
+      <button className='en' onClick={() => setmodalstatus(true)}>Enquire Now</button>
+
+      <div className={`modaloverly ${modalstatus ? 'showmodal' : ''}`}></div>
+
+
+      <div className={`modaldiv ${modalstatus ? 'showmodaldiv' : ''}`}>
+        <h3>Enquiry Now <span className='closebtn' onClick={() => setmodalstatus(false)}>&times;</span> </h3>
+      </div>
+
+
+
+      {/*CREATE LOGIN MODAL PROJECT END */}
+
+      <br></br>
+
 
 
 

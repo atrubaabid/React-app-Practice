@@ -80,3 +80,97 @@
 .activemenu{
   left: 0%;
 }
+
+.en{
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  border-radius: 20px;
+  font-weight: bold;
+  background-color: yellow;
+}
+
+
+.modaloverly{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  display: none;
+  
+}
+
+.showmodal{
+  display: block;
+
+
+}
+
+.modaldiv{
+  width: 320px;
+  height: 320px;
+  background-color: white;
+  position: fixed;
+  left: 50%;
+  top: -500px;
+  transform: translate(-50%,-50%);
+  transition: 0.5s;
+  color: black;
+
+}
+
+.showmodaldiv{
+  top: 50%;
+}
+
+.closebtn{
+  cursor: pointer;
+}
+
+.faqOuter{
+  margin-inline: 20px;
+}
+
+
+.faqitems{
+  border: 5px solid black;
+  margin-bottom: 20px;
+
+}
+
+.faqitems h2{
+
+  margin: 0;
+  padding: 10px;
+  text-align: left;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+
+}
+
+.faqitems p{
+
+  text-align: left;
+  height: 0px;
+  margin: 0px;
+  transform: scaleY(0);
+  padding: 0px;
+  transition: 0.3s;
+  color: black;
+  font-size: 20px;
+
+
+}
+
+.activeAns{
+  height: auto !important;
+  transform: scaleY(1) !important;
+  padding: 10px !important;
+  
+}
+
+
+
+
