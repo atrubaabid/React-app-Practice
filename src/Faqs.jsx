@@ -12,9 +12,7 @@ export default function Faqs() {
         let itemsDetails = {
             itemsData,
             currentid,
-            setcurrentid
-
-        }
+            setcurrentid }
         return (
             <Faqitems itemsDetails={itemsDetails} key={i}></Faqitems>
         )
@@ -50,9 +48,11 @@ function Faqitems({ itemsDetails }) {
 
     let { itemsData, currentid, setcurrentid } = itemsDetails;
 
+    return (
     <div className='faqitems' >
-        <h2 onClick={() => setcurrentid(itemsData.id)}>{itemsData.Questions}</h2>
+        <h2 onClick={()=>setcurrentid(itemsData.id)}>{itemsData.Question}</h2>
 
-        <p className={currentid == itemsData.id ? 'activeAns' : ''}>{itemsData.Answer}</p>
+        <p className={currentid==itemsData.id ? 'activeAns' : ''}>{itemsData.Answer}</p>
     </div >
+    )
 }

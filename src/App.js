@@ -7,6 +7,8 @@ import { useState } from 'react';
 import btnmodule from './button.module.css'
 import { questions } from './Data/faqQuestion';
 import Faqs from './Faqs';
+import 'react-notifications/lib/notifications.css';
+
 
 
 function App() {
@@ -56,12 +58,78 @@ function App() {
   let [modalstatus, setmodalstatus] = useState(false)
 
   let [showAns, setshowAns] = useState(questions[0].id)
+  // let showNotification=()=>{
+  //     NotificationManager.info('Info message');
+
+  // }
 
 
   return (
 
     // we write html, css, js all here
     <div className='main'>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      {/*REACT NOTIFICATION ye kam nhi ker raha qk insall shi nhi hua i'll check it later */}
+      {/* <NotificationContainer/> */}
+
+
+        
+    {/* <button onClick={showNotification}>Save</button> */}
+
+
+
+
+      {/*REACT NOTIFICATION END */}
+
+
+
+
+<br></br>
+
 
 
       <Faqs></Faqs>
